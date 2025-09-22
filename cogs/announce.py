@@ -47,7 +47,7 @@ class ScheduledCheckinCog(commands.Cog):
     @tasks.loop(minutes=1)
     async def scheduled_announcement(self):
         now_utc = datetime.now(timezone.utc)
-        is_correct_day = now_utc.weekday() in [0, 4] # 0=Monday, 4=Friday
+        is_correct_day = now_utc.weekday() in [4] # 0=Monday, 4=Friday
         is_correct_time = now_utc.hour == ANNOUNCEMENT_TIME_UTC.hour and now_utc.minute == ANNOUNCEMENT_TIME_UTC.minute
 
         if is_correct_day and is_correct_time:
