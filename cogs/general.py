@@ -11,7 +11,7 @@ class GeneralCog(commands.Cog):
         # Sets the bot's presence.
         print("Bot is ready, changing presence...")
         game = discord.Game("gentalks.vercel.app")
-        await self.bot.change_presence(status=discord.Status.dnd, activity=game)
+        await self.bot.change_presence(status=discord.Status.online, activity=game)
         print("Presence has been set.")
     # bot presence
     async def change_presence(self, bot):

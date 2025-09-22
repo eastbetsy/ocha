@@ -28,7 +28,6 @@ bot = MyBot(command_prefix='o!', intents=intents)
 
 @bot.event
 async def on_ready():
-    """Event that fires when the bot is ready and connected to Discord."""
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     try:
         synced = await bot.tree.sync()
@@ -38,7 +37,6 @@ async def on_ready():
     print('------')
 
 async def main():
-    """The main function to load cogs and start the bot."""
     async with bot:
         for filename in os.listdir('./cogs'):
             if filename.endswith('.py'):
