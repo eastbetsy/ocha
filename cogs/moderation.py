@@ -1,9 +1,13 @@
+import os
+from dotenv import load_dotenv
+import supabase
+from supabase import create_client, Client
 import discord
 from discord import app_commands
 from discord.ext import commands
 from datetime import datetime, timezone
 
-import supabase
+load_dotenv()
 
 class ModerationCog(commands.Cog):
     """A cog for all moderation-related commands."""

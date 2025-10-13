@@ -27,31 +27,18 @@ class MyBot(commands.Bot):
         self.supabase_client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 bot = MyBot(command_prefix='o!', intents=intents)
+async def load_extensions():
+    for filename in os.listdir("./cogs"):
+        if filename.endswith(".py"):
+            await bot.load_extension(f"cogs.{filename[:-3]}")
 
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-    try:
-        synced = await bot.tree.sync()
-        print(f'Synced {len(synced)} slash command(s).')
-    except Exception as e:
-        print(f'Failed to sync commands: {e}')
-    print('------')
+    print(f"✅ Logged in as {bot.user}")
 
 async def main():
     async with bot:
-        for filename in os.listdir('./cogs'):
-            if filename.endswith('.py'):
-                try:
-                    await bot.load_extension(f'cogs.{filename[:-3]}')
-                    print(f'Successfully loaded cog: {filename}')
-                except Exception as e:
-                    print(f'Failed to load cog {filename}: {e}')
-        
-        await bot.start(TOKEN)
+        await load_extensions()
+        await bot.start(os.getenv("DISCORD_TOKEN"))
 
-if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        print("Bot shutdown requested. Exiting.")
+asyncio.run(main())
