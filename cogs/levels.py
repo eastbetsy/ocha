@@ -1,4 +1,3 @@
-# cogs/leveling.py
 import os
 import discord
 import psycopg2
