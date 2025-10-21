@@ -1,10 +1,10 @@
-import os
 import discord
 from discord.ext import commands
 
 class GeneralCog(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
+
     @commands.Cog.listener()
     async def on_ready(self):
         # Sets the bot's presence.
@@ -12,9 +12,6 @@ class GeneralCog(commands.Cog):
         game = discord.Game("gentalks.vercel.app")
         await self.bot.change_presence(status=discord.Status.online, activity=game)
         print("Presence has been set.")
-    # bot presence
-    async def change_presence(self, bot):
-        self.bot = bot
 
     @discord.app_commands.command(name="member_count", description="View number of total members in this server.")
     async def member_count(self, interaction: discord.Interaction):
