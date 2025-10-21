@@ -31,7 +31,7 @@ class ScheduledCheckinCog(commands.Cog):
 
         announce_embed = discord.Embed(
             title="📅 **STAFF CHECK-IN DAY**",
-            description="Hey staff! It's check-in day. Let us know how your week went or what you are looking forward to this week!",
+            description="Hey staff! It's check-in day. Let us know how your week went!",
             color=discord.Color.orange()
         )
         
