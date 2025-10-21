@@ -1,0 +1,17 @@
+module.exports = {
+  apps: [{
+    name: 'bot',
+    script: 'index.py',
+    interpreter: 'python3',
+    env: {
+      DISCORD_TOKEN: "MTQxNzY1ODk3MTY5ODc1NzY3Mg.G2hjUk.MvJnFZNFZM9keb7W8U_sIAJt-9f3mnGJksj-ds",
+      STAFF_CHANNEL_ID: "1377871655266811904",
+      STAFF_ROLE_ID: "1380407643818168373",
+      DB_HOST: "ocha.cluw4qweqp40.us-east-2.rds.amazonaws.com",
+      DB_PORT: "5432",
+      DB_NAME: "ocha",
+      DB_USER: "postgre",
+      DB_PASSWORD: "<)y;Q,8N*mod"
+    }
+  }]
+};
